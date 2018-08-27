@@ -3,9 +3,9 @@ package resourceadapter
 import (
 	"context"
 
+	. "github.com/stellar/go/protocols/horizon"
 	"github.com/stellar/go/services/horizon/internal/httpx"
 	"github.com/stellar/go/services/horizon/internal/ledger"
-	. "github.com/stellar/go/protocols/horizon"
 	"github.com/stellar/go/support/render/hal"
 )
 
@@ -26,7 +26,7 @@ func PopulateRoot(
 	dest.NetworkPassphrase = passphrase
 	dest.ProtocolVersion = pVersion
 
-	lb := hal.LinkBuilder{httpx.BaseURL(ctx)}
+	lb := hal.LinkBuilder{Base: httpx.BaseURL(ctx)}
 	dest.Links.Account = lb.Link("/accounts/{account_id}")
 	dest.Links.AccountTransactions = lb.PagedLink("/accounts/{account_id}/transactions")
 	dest.Links.Assets = lb.Link("/assets{?asset_code,asset_issuer,cursor,limit,order}")
