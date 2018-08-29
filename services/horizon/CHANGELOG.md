@@ -15,6 +15,7 @@ bumps.  A breaking change will get clearly notified in this log.
 ### Changes
 
 - dropped support for go1.8 since we need big.IsInt64 from math/big in our findpaths calculations
+- removed `/friendbot` redirect routes in favor of using the FriendBot URL provided in the root resource. Note that this field is not visible unless Horizon is configured with a Friendbot URL.
 
 ## v0.13.3 - 2018-08-23
 
